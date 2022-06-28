@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create</title>
+</head>
+<body>
+    <h2>Employee Details</h2>
+
+    <form action="" method = "POST" enctype="multipart/form-data" >
+        <div class="form-group row">
+          <label for="id">Emp_Id</label>
+          <input type="text" class="form-control" name="id" id="id">
+        </div>
+        <div class="form-group row">
+            <label for="name"> Name</label>
+            <input type="text" class="form-control" name="name" id="name">
+        </div>
+        
+        <div class="form-group row">
+            <label for="code"> Code</label>
+            <input type="text" class="form-control" name="code" id="code">
+        </div>
+
+        <div class="form-group row">
+            <label for="bday"> Bday</label>
+            <input type="date" class="form-control" name="bday" id="bday">
+        </div>
+
+        <label>  
+            Gender:   
+            </label>  <br>  
+            <input type="radio" id="gender" name="gender" value="male"/> Male    
+            <br>  
+            <input type="radio" id="gender" name="gender" value="female"/> Female <br/>   
+
+            <label for="position">Position</label>
+            <select name="position" id="position">
+            <option value="hr">HR</option>
+              <option value="developer">Developer</option>
+              <option value="ui">UI</option>
+              <option value="qa">QA</option>
+            </select>
+
+        <div class="form-group row">
+            <label for="age"> Age</label>
+            <input type="text" class="form-control" name="age" id="age">
+        </div>
+
+    
+        <label>  
+            Hobby:   
+            </label>
+                
+            <input type="checkbox" id="hobby" name="hobby" value="reading"/> Reading    
+            <input type="checkbox" id="hobby" name="hobby" value="writting"/> Writting 
+            <input type="checkbox" id="hobby" name="hobby" value="tracking"/> Tracking 
+
+        <div class="form-group row">
+            <label for="image"> Image</label>
+            <input type="file" class="form-control" name="image" id="image">
+            
+        </div>
+
+        <div class="form-group row">
+            <label for="address"> Address</label>
+            <input type="text" class="form-control" name="address" id="address">
+        </div>
+
+
+        <button type="btnAdd" class="btn btn-primary">Submit</button>
+      </form>
+
+      <td><img src="{{ url_for('send_uploaded_file', filename=uploaded_image) }}" /> </td>
+
+</body>
+</html>

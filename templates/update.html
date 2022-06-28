@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create</title>
+</head>
+<body>
+    <h2>Employee Details</h2>
+
+    <form action="" method = "POST" >
+        <div class="form-group row">
+          <label for="id">Emp_Id</label>
+          <input type="text" class="form-control" name="id" id="id" value="{{e.id}}">
+        </div>
+        <div class="form-group row">
+            <label for="name"> Name</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{e.name}}">
+        </div>
+        
+        <div class="form-group row">
+            <label for="code"> Code</label>
+            <input type="text" class="form-control" name="code" id="code" value="{{e.code}}">
+        </div>
+
+        <div class="form-group row">
+            <label for="bday"> Bday</label>
+            <input type="date" class="form-control" name="bday" id="bday" value="{{e.bday}}">
+        </div>
+
+        <label>  
+            Gender:   
+            </label>  <br>  
+            <input type="radio" id="gender" name="gender" value="male" {% if  e.gender=='male'  %}checked{% endif  %} /> Male <br>
+
+            <input type="radio" id="gender" name="gender" value="female" {% if  e.gender=='female'  %}checked {% endif  %}/> Female <br/>   
+
+        
+            <td>Position</td>
+            <td>
+            <select name="position" class="form-control">
+                <option value="hr"
+                {% if 'hr' in e.position %}
+                selected
+               {% endif %}
+                >HR</option>
+                <option value="developer"
+                {% if 'developer' in e.position %}
+                  selected
+               {% endif %}
+                >Developer</option>
+                <option value="ui"
+                
+                {% if 'ui' in e.position %}
+                selected
+              {% endif %}
+                >UI</option>
+
+                <option value="qa"
+                
+                {% if 'qa' in e.position %}
+                selected
+              {% endif %}
+                >QA</option>
+
+             </select>
+            </td>
+        </tr>
+
+        <div class="form-group row">
+            <label for="age"> Age</label>
+            <input type="text" class="form-control" name="age" id="age" value="{{e.age}}">
+        </div>
+
+        <tr>
+            <td>Hobbies</td>
+            <td>
+    
+                Reading : <input type="checkbox" name="hobby"  value="reading" 
+                {% if 'reading' in e.hobby %}
+                   checked
+                {% endif %}>
+
+                Writting : <input type="checkbox"  name="hobby"  value="writting"
+                {% if 'writting' in e.hobby %}
+                    checked
+                {% endif %}>
+
+                Tracking : <input type="checkbox"  name="hobby"  value="tracking"
+                {% if 'tracking' in e.hobby %}
+                   checked
+                {% endif %}>
+
+                <!-- {% for checkbox in e.hobby %}
+
+                <div class="form-check form-check-inline">
+                
+                {{checkbox.tag}}
+                
+                <label class="form-check-label">{{checkbox.reading}}</label>
+                <label class="form-check-label">{{checkbox.writting}}</label>
+                <label class="form-check-label">{{checkbox.tracking}}</label>
+                
+                </div>
+                
+                {% endfor %} -->
+            </td>
+        </tr>
+    
+
+
+        <tr>
+           
+        
+   
+
+
+        <div class="form-group row">
+            <label for="image"> Image</label>
+            <input type="file" class="form-control" name="image" id="image" value="image" 
+            {% if 'image' in e.image %}
+            <img src="{{ url_for('send_uploaded_file', filename=uploaded_image) }}" />
+            {% endif %}> {{e.image}}
+        </div>
+
+        <div class="form-group row">
+            <label for="address"> Address</label>
+            <input type="text" class="form-control" name="address" id="address" value="{{e.address}}">
+        </div>
+
+
+        <button type="btnAdd" class="btn btn-primary">Submit</button>
+      </form>
+</body>
+</html>
