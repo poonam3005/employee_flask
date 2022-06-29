@@ -25,6 +25,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 app.config["IMAGE_UPLOADS"] = "D:\Flask\employee\static"
 app.config['UPLOAD_DIRECTORY'] = 'static/'
+
+
 # --------RETRIVE--------
 
 @app.route('/')
@@ -33,7 +35,7 @@ def list():
     conn = connection()
     cursor = conn.cursor()
     
-    cursor.execute("SELECT * FROM employee")
+    cursor.execute("SELECT * FROM employee where delete='false'")
 
     for row in cursor.fetchall():
         emp1.append({"id": row[0], "name": row[1], "code": row[2], "bday": row[3], "gender": row[4], "position": row[5], "age": row[6], "hobby": row[7], "address": row[8], "image": row[9]})
@@ -160,7 +162,7 @@ def delete(id):
         
         conn.commit()
         conn.close()
-        return render_template("create.html")  
+        return redirect("/")  
 
     
 
